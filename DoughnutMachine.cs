@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+using System.ComponentModel;
 
 namespace Ciortea_Adrian_Lab2
 {
-    class DoughnutMachine
+    class DoughnutMachine : Component
     {
         public DoughnutMachine()
         {
