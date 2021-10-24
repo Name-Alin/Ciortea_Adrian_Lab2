@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ciortea_Adrian_Lab2"
+        xmlns:CustomCommands="clr-namespace:Ciortea_Adrian_Lab2.CustomCommands"
         mc:Ignorable="d"
         Title="Virtual Doughnuts  Factory" Height="450" Width="800" ResizeMode="NoResize" Loaded="frmMain_Loaded" >
     <Grid x:Name="click" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" MenuItem.Click="FilledItemsShow_Click">
@@ -33,13 +34,13 @@
                 <Label x:Name="lblType" Content="Type" Canvas.Left="191" Canvas.Top="23"/>
                 <Label x:Name="lblPrice" Content="Price" Canvas.Left="437" Canvas.Top="23"/>
                 <Label x:Name="lblTotal" Content="Total" Canvas.Left="437" Canvas.Top="113"/>
-                <ComboBox x:Name="cmbType" Canvas.Left="233" Canvas.Top="27" Width="120"/>
+                <ComboBox x:Name="cmbType" Canvas.Left="233" Canvas.Top="27" Width="120" SelectionChanged="cmbType_SelectionChanged"/>
                 <TextBox x:Name="txtPrice" Canvas.Left="480" Canvas.Top="27" Text="0" TextWrapping="Wrap" Width="94" IsReadOnly="True"/>
                 <ListBox x:Name="lstSale" Height="57" Width="544" Canvas.Left="30" Canvas.Top="50"/>
                 <TextBox x:Name="txtTotal" Canvas.Left="480" Canvas.Top="117" Text="0" TextWrapping="Wrap" Width="94" IsReadOnly="True"/>
-                <Button x:Name="btnAddToSale" Content="Add To Sale" Canvas.Left="621" Canvas.Top="50" Width="88"/>
-                <Button x:Name="btnRemoveItem" Content="Remove Item" Canvas.Left="621" Canvas.Top="75" Width="88"/>
-                <Button x:Name="btnCheckOut" Content="Check Out" Canvas.Left="621" Canvas.Top="115" Width="88"/>
+                <Button x:Name="btnAddToSale" Content="Add To Sale" Canvas.Left="621" Canvas.Top="50" Width="88" Click="btnAdd_Click"/>
+                <Button x:Name="btnRemoveItem" Content="Remove Item" Canvas.Left="621" Canvas.Top="75" Width="88" Click="btnRemoveItem_Click"/>
+                <Button x:Name="btnCheckOut" Content="Check Out" Canvas.Left="621" Canvas.Top="115" Width="88" Click="btnCheckOut_Click"/>
             </Canvas>
         </GroupBox>
         <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" 
@@ -64,8 +65,8 @@ IsCheckable="True"/>
 IsCheckable="True"/>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem x:Name="mnuStop" Header="Stop" 
-Click="stopToolStripMenuItem_Click"/>
+                <MenuItem x:Name="mnuStop" Header="Stop" Click="stopToolStripMenuItem_Click" InputGestureText="Ctrl+S" Command="CustomCommands:StopCommand.Launch"/>
+                <MenuItem Header="Inventory" Command="ApplicationCommands.Print"></MenuItem>
             </MenuItem>
 
         </Menu>
